@@ -149,6 +149,16 @@ body, html {
   color: #333;
 }
 
+.fade-in-target {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.fade-in-target.visible {
+  opacity: 1;
+}
+
+
 .section-headerprac {
   top: 14rem; /* Align to the bottom of .image-container */
   right: 33.5rem; /* Align to the left of .image-container */

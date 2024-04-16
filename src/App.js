@@ -20,16 +20,21 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const content = document.querySelector('.content');
+    // Select all child elements you want to apply the effect to
+    const targets = document.querySelectorAll('.content .fade-in-target');
 
     const checkVisibility = () => {
-      const rect = content.getBoundingClientRect();
-      const topShown = rect.top >= 0;
-      const bottomShown = rect.bottom <= window.innerHeight;
+      targets.forEach(target => {
+        const rect = target.getBoundingClientRect();
+        const fifthHeight = rect.height / 5;  // Get half height of the element
+        const elementMiddle = rect.top - fifthHeight;  // Calculate middle position of the element
+        const bottomOfViewport = window.innerHeight;
 
-      if (topShown && bottomShown) {
-        content.classList.add('visible');
-      }
+        // Check if the bottom of the viewport has reached the middle of the element
+        if (elementMiddle <= bottomOfViewport) {
+          target.classList.add('visible');
+        }
+      });
     };
 
     window.addEventListener('scroll', checkVisibility);
@@ -84,16 +89,16 @@ function App() {
     <div className="content">
 
 
-        <img src={manInterviewing} alt="InterviewingPic" className="man-inter custom-cursor-hover image-hover-effect"/>
-        <div className="interviewtext custom-cursor-hover">
+        <img src={manInterviewing} alt="InterviewingPic" className="man-inter custom-cursor-hover image-hover-effect fade-in-target"/>
+        <div className="interviewtext custom-cursor-hover fade-in-target">
           A.I Powered Interviews with <br/> live personalized questions.
         </div>
-        <img src={statsPic} alt="stat" className="stat-style custom-cursor-hover image-hover-effect"/>
-        <div className="stat-text custom-cursor-hover">
+        <img src={statsPic} alt="stat" className="stat-style custom-cursor-hover image-hover-effect fade-in-target"/>
+        <div className="stat-text custom-cursor-hover fade-in-target">
           Instant, detailed feedback to <br/> enhance performance.
         </div>
-      <h1 className="contentHeader">Revolutionized Recruiting</h1>
-      <p className="contentBody">The job market is more competitive than ever.<br/> Prepare for those tough
+      <h1 className="contentHeader fade-in-target">Revolutionized Recruiting</h1>
+      <p className="contentBody fade-in-target">The job market is more competitive than ever.<br/> Prepare for those tough
         interviews <br/>with Fractal. </p>
     </div>
   </div>
