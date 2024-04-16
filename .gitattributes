@@ -1,3 +1,1 @@
-ASCII[[:space:]]-[[:space:]]A[[:space:]]Mandelbrot[[:space:]]Fractal[[:space:]]Zoom.mp4 filter=lfs diff=lfs merge=lfs -text
-*.mp4 filter=lfs diff=lfs merge=lfs -text
 src/mandelbrotzoom.mp4 filter=lfs diff=lfs merge=lfs -text
