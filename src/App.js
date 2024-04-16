@@ -82,7 +82,7 @@ function App() {
     <Superpowers superpowers={superpowers} className="superpowers-text"/>
     <div className="video-container">
       <video className="videoTag" autoPlay loop muted playsInline>
-        <source src={videoFile} type="video/mp4"/>
+        <source src="https://drive.google.com/file/d/1D5p4pav2xDzo0u58rllntWbY4N-erY2S/view?usp=sharing" type="video/mp4"/>
         Your browser does not support the video tag.
       </video>
     </div>
