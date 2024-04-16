@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 
+/src/ASCII - A Mandelbrot Fractal Zoom.mp4
 # testing
 /coverage
 

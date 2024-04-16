@@ -1,49 +1,270 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
-
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.videoTag {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: fill; /* Stretch and distort the video to fit the container */
-  z-index: -100;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body, html {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
+  font-family: 'JetBrains Mono', monospace;
+}
+/*
+.end-cursor:after {
+  content: '|';
+  color: white; /* Ensures the cursor is visible, adjust color as needed
+  animation: blink 1s step-start infinite;
+}
+*/
+  .end-cursor:after {
+    content: '|';
+    @apply text-secondary-300;
+  }
+
+  .end-cursor.blinking:after {
+    transition: background-color 0.5s ease;
+    animation: blink 1s step-start infinite;
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+.App {
+  text-align: center;
+}
+
+.video-container {
+  position: absolute; /* Changed from relative to fixed */
+  top: 0; /* Aligns the container to the top */
+  left: 0; /* Aligns the container to the left */
+  width: 100vw; /* Cover full viewport width */
+  height: 100vh; /* Cover full viewport height */
+  z-index: -1; /* Positioned behind the content but still visible */
+  bottom: 1000px;
+}
+
+/* Style for the card container */
+.card {
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.contentBody {
+
+  font-size: 2rem;
+  font-weight: normal;
+  bottom: 300px;
+}
+
+/* Style for the card image */
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* Keeps the aspect ratio, might crop the image */
+}
+
+/* Style for the card title */
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0.5rem 0.5rem;
+}
+
+/* Style for the card text */
+.card-text {
+  color: #666;
+  margin: 0.5rem 0.5rem;
+}
+
+/* Style for the card button */
+.card .btn {
+  display: block;
+  width: calc(100% - 2rem); /* Subtracting the left and right margin */
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none; /* In case you use an <a> tag */
+  transition: background-color 0.2s ease-in-out;
+}
+
+.scroll-arrow {
+    bottom: 10.7rem;
+    height: 4rem;
+    position: absolute;
+    right: 14rem;
+    width: 5.2rem;
+    z-index: 2;
+    animation: slideFadeInOut 2s cubic-bezier(.77,0,.175,1) infinite; /* Apply Bezier curve timing */
+}
+
+.man-inter {
+
+    top: 14rem;
+    height: 26.53rem;
+    position: absolute;
+    right: 28rem;
+    width: 24rem;
+
+}
+
+.stat-style {
+
+    top: 14rem;
+    height: 29rem;
+    position: absolute;
+    right: 20px;
+    width: 24rem;
+}
+
+.interviewtext {
+  font-weight: bold;
+  position: absolute; /* Positioned absolutely within .image-container */
+  top: 14rem; /* Align to the bottom of .image-container */
+  right: 33.5rem; /* Align to the left of .image-container */
+  color: black; /* Set text color */
+  padding: 10px; /* Some padding around the text */
+  /* Optional: Adds semi-transparent background to the text for readability */
+}
+
+.section-headerprac {
+  top: 117rem; /* Align to the bottom of .image-container */
+  right: 33.5rem; /* Align to the left of .image-container */
+  color: black; /* Set text color */
+  font-size: 24px;
+  color: #333;
+}
+
+.section-headerprac {
+  top: 14rem; /* Align to the bottom of .image-container */
+  right: 33.5rem; /* Align to the left of .image-container */
+  color: black; /* Set text color */
+  font-size: 24px;
+  color: #333;
+}
+
+.section-headerinter {
+  font-size: 24px;
+  color: #333;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.custom-cursor-hover:hover {
+  cursor: url('./go.png') 16 16, auto; /* Path to your 'GO' cursor image, 16 16 is the image hotspot coordinates */
+  transition: cursor 2s ease;
+  transition: transform 1s ease/* Smooth transition for the cursor change */
+}
+
+.image-hover-effect {
+  transition: transform 3s ease, box-shadow 3s ease;
+  display: inline-block; /* or block depending on layout */
+  filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.0));
+}
+
+.image-hover-effect:hover {
+  transform: scale(1.05); /* Slightly increase the size of the image */
+  filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.5));
+}
+
+
+.stat-text {
+  font-weight: bold;
+  position: absolute; /* Positioned absolutely within .image-container */
+  top: 14rem; /* Align to the bottom of .image-container */
+  right: 5.7rem; /* Align to the left of .image-container */
+  color: black; /* Set text color */
+  padding: 10px; /* Some padding around the text */
+  /* Optional: Adds semi-transparent background to the text for readability */
+}
+
+
+
+@keyframes slideFadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(-2.5rem)
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(0)
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(2.5rem)
+    }
+}
+
+.videoTag {
+  width: 100%;
+  height: 100%; /* Cover the entire container */
+  object-fit: cover; /* Ensures video covers the area without stretching */
+  filter: brightness(50%) sepia(80) saturate(10) hue-rotate(25deg) blur(10px); /* Initial state */
+  animation: focusVideo 2s ease-out forwards; /* Define the animation */
+}
+
+@keyframes focusVideo {
+  from {
+    filter: brightness(50%) sepia(80) saturate(10) hue-rotate(25deg) blur(10px);
+  }
+  to {
+    filter: brightness(50%) sepia(80) saturate(10) hue-rotate(25deg) blur(0px); /* Fully clear */
+  }
 }
 
 .menu-bar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  background-color: rgba(51, 51, 51, 0); /* Dark background with 50% transparency */
-  color: white;
-  padding: 10px 20px;
+
+  /*the alpha value controls the transparency*/
+  background: rgba(64, 193, 193, 0.3);
+
+/* This controls the blurring effect*/
+  backdrop-filter: blur( 7.5px );
+  -webkit-backdrop-filter: blur( 7.5px );
+
+/*Adding the shadow*/
+  box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, .7 );
+
+/* Adding our borders*/
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition-timing-function: linear;
+  transition: top 1s;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  z-index: 70; /* Highest to ensure it overlays everything */
 }
 
+.menu-bar.hide {
+  top: -100px;
+  /* Hide the menu by moving it out of view */
+}
+
+.menu-bar.show {
+  transform: translateY(0);
+}
 
 .logo {
-  width: 300px; /* Adjust based on your logo's size */
+  padding: 12px;
+  width: 300px; /* Controlled size */
   height: auto;
 }
 
@@ -57,30 +278,53 @@ nav ul li {
 }
 
 nav ul li a {
- color: white;
+  color: #eee7e2;
   text-decoration: none;
-  font-weight: bold;
-  font-size: 40px; /* Increase font size */
-  padding-top: 5px; /* Adjust this value as needed */
-  padding-bottom: 20px; /* Optional: Adjust for balanced spacing */
-  margin: 0 5px; /* Optional: add some margin for spacing */
-  display: inline-block; /* Allows padding and margin to take effect */
-  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-  font-family: "JetBrains Mono", monospace;
-  font-optical-sizing: auto;
-  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  padding-right: 23px;
+  padding-top: 28px;
+  display: inline-block;
+
 }
 
-.videoTag {
-  position: fixed;
-  top: 0;
-  left: 0;
+.content {
+  background: #eee7e2;
+  justify-content: center;
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: relative;
+  color: #333;
+  padding: 20px;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -100;
+  top: 506px; /* Consider adjusting this if it's not necessary */
+  z-index: 0;
+  height: 800px;
+  max-height: 100vh;
 }
 
+
+
+.content > * {
+  opacity: 0;
+  transition: opacity 0.1s ease-out;
+}
+
+.content.visible > * {
+  opacity: 1;
+}
+
+.contentHeader {
+  font-size: 3.8rem;
+  margin-bottom: 3.5rem;
+  margin-top: 14rem;
+  width: 100%;
+  font-weight: bolder;
+  line-height: 1;
+}
 
 .App-header {
   background-color: #282c34;
@@ -89,12 +333,8 @@ nav ul li a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(100px + 10vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
+  font-size: calc(10px + 2vmin);
+  color: #eee7e2;
 }
 
 @keyframes App-logo-spin {
