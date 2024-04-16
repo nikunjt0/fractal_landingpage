@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef} from 'react';
 import './App.css';
-import videoFile from './ASCII - A Mandelbrot Fractal Zoom.mp4';
+import videoFile from './mandelbrotzoom.mp4';
 import logo from './fractallogo.svg';
 import goatpic from './goat.jpeg';
 import scrollDownArrow from './scrollIcon.png';
